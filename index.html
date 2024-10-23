@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Countdown Clock</title>
+  <style>
+    body {
+      background-color: black;
+      width: 100vw;
+      height: 100vh;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .clock {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: 'Digital-7 Mono', sans-serif;
+      font-size: 8rem;
+      color: red;
+      text-shadow: 0 0 10px rgba(255, 0, 0, 0.8),
+                   0 0 20px rgba(255, 0, 0, 0.6),
+                   0 0 30px rgba(255, 0, 0, 0.4),
+                   0 0 40px rgba(255, 0, 0, 0.2);
+    }
+
+    .clock p {
+      margin: 0 10px;
+      color: red;
+      text-shadow: 0 0 10px rgba(255, 0, 0, 0.8),
+                   0 0 20px rgba(255, 0, 0, 0.6),
+                   0 0 30px rgba(255, 0, 0, 0.4),
+                   0 0 40px rgba(255, 0, 0, 0.2);
+    }
+
+    @font-face {
+      font-family: 'Digital-7 Mono';
+      src: url('https://fonts.cdnfonts.com/s/9461/Digital-7%20Mono.woff') format('woff');
+    }
+  </style>
+</head>
+<body>
+
+  <div class="clock">
+    <div id="hours">00</div>
+    <p>:</p>
+    <div id="minutes">00</div>
+    <p>:</p>
+    <div id="seconds">00</div>
+  </div>
+
+  <script>
+    function getQueryParam(param) {
+      const urlParams = new URLSearchParams(window.location.search);
+      const value = urlParams.get(param);
+      return value && !isNaN(value) && parseInt(value, 10) > 0 ? parseInt(value, 10) : 60;
+    }
+
+    function formatTime(seconds) {
+      const hours = String(Math.floor(seconds / 3600)).padStart(2, '0');
+      const minutes = String(Math.floor((seconds % 3600) / 60)).padStart(2, '0');
+      const secs = String(seconds % 60).padStart(2, '0');
+      return { hours, minutes, secs };
+    }
+
+    function updateClock(seconds) {
+      const { hours, minutes, secs } = formatTime(seconds);
+      document.getElementById('hours').textContent = hours;
+      document.getElementById('minutes').textContent = minutes;
+      document.getElementById('seconds').textContent = secs;
+    }
+
+    function startBlinking() {
+      const clock = document.querySelector('.clock');
+      setInterval(() => {
+        clock.style.visibility = clock.style.visibility === 'hidden' ? 'visible' : 'hidden';
+      }, 500);
+    }
+
+    function startCountdown() {
+      let time = parseInt(getQueryParam('t'), 10);
+      if (isNaN(time) || time <= 0) {
+        alert("Parâmetro 't' inválido. Por favor, forneça um valor positivo.");
+        return;
+      }
+
+      updateClock(time);
+
+      const countdown = setInterval(() => {
+        time--;
+        updateClock(time);
+
+        if (time <= 0) {
+          clearInterval(countdown);
+          startBlinking();
+        }
+      }, 1000);
+    }
+
+    startCountdown();
+  </script>
+</body>
+</html>
