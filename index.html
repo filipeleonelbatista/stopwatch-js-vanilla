@@ -5,7 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Countdown Clock</title>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+    @font-face {
+      font-family: 'Digital-7 Mono';
+      src: url('./digital-7-mono.ttf') format('truetype');
+    }
 
     body {
       background-color: black;
@@ -21,7 +24,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      font-family: 'VT323', monospace;
+      font-family: 'Digital-7 Mono', monospace;
       font-size: 8rem;
       color: red;
       text-shadow: 0 0 10px rgba(255, 0, 0, 0.8),
