@@ -57,7 +57,7 @@
     function getQueryParam(param) {
       const urlParams = new URLSearchParams(window.location.search);
       const value = urlParams.get(param);
-      return value && !isNaN(value) && parseInt(value, 10) > 0 ? parseInt(value, 10) : 60;
+      return value && !isNaN(value) && parseInt(value, 10) >= 0 ? parseInt(value, 10) : null;
     }
 
     function formatTime(seconds) {
@@ -82,9 +82,23 @@
     }
 
     function startCountdown() {
-      let time = parseInt(getQueryParam('t'), 10);
-      if (isNaN(time) || time <= 0) {
-        alert("Parâmetro 't' inválido. Por favor, forneça um valor positivo.");
+      const day = getQueryParam('day');
+      const month = getQueryParam('month');
+      const year = getQueryParam('year');
+      const hour = getQueryParam('hour');
+      const minute = getQueryParam('minute');
+
+      if (day === null || month === null || year === null || hour === null || minute === null) {
+        alert("Parâmetros inválidos. Por favor, forneça valores para day, month, year, hour e minute.");
+        return;
+      }
+
+      const targetDate = new Date(year, month - 1, day, hour, minute);
+      const now = new Date();
+      let time = Math.floor((targetDate - now) / 1000); // Convertendo milissegundos para segundos
+
+      if (time <= 0) {
+        alert("A data/hora fornecida já passou.");
         return;
       }
 
