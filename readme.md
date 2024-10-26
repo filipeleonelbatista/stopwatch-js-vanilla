@@ -1,11 +1,11 @@
-<a href="https://github.com/filipeleonelbatista/chat-anywhere/blob/master/README_EN.md" target="_blank">
+<a href="https://github.com/filipeleonelbatista/stopwatch-js-vanilla/blob/master/README_EN.md" target="_blank">
   <img src="https://raw.githubusercontent.com/filipeleonelbatista/filipeleonelbatista/master/assets/usa_flag.png" width="28px" />
   Version in English
 </a>
 </br>
 </br>
 
-<img width="100%" src="./banner.png">
+<img width="100%" src="./banner.jpeg">
 
 # Countdown Clock
 
@@ -13,13 +13,9 @@ Um projeto em JavaScript puro para exibir um relógio de contagem regressiva, co
 
 ## 📝 Sumário
 
-- [Sobre](#sobre)
-- [Funcionalidades](#funcionalidades)
-- [Como Usar](#como-usar)
-- [Instalação](#instalação)
-- [Personalização](#personalização)
-- [Tecnologias](#tecnologias)
-- [Licença](#licença)
+- [Sobre](#-sobre)
+- [Tecnologias](#Tecnologias)
+- [Instalação](#Instalação)
 
 ---
 
@@ -27,7 +23,7 @@ Um projeto em JavaScript puro para exibir um relógio de contagem regressiva, co
 
 Este projeto é um relógio de contagem regressiva feito em HTML, CSS e JavaScript Vanilla, com foco em uma interface visual impactante usando uma fonte de estilo digital e efeitos de sombra para imitar o estilo de um display LED.
 
-![Relógio de Contagem Regressiva](./screenshot.png)
+![Relógio de Contagem Regressiva](./banner.png)
 
 ## ⚙️ Funcionalidades
 
@@ -47,17 +43,12 @@ Este projeto é um relógio de contagem regressiva feito em HTML, CSS e JavaScri
 
 3. Para definir uma data e hora de contagem, passe os parâmetros `day`, `month`, `year`, `hour`, e `minute` na URL. Por exemplo:
    ```
-   http://localhost/index.html?day=25&month=12&year=2023&hour=18&minute=30
+   /?day=25&month=12&year=2023&hour=18&minute=30
    ```
 
 ## 📦 Instalação
 
 Para usar este projeto, basta clonar o repositório e abrir o arquivo `index.html` em um navegador que suporte JavaScript.
-
-## 🎨 Personalização
-
-- Para alterar a cor do relógio, modifique o valor `color` no estilo `.clock` dentro do bloco `<style>`.
-- O arquivo `digital-7-mono.ttf` é usado para a fonte digital do display. Outras fontes podem ser adicionadas e configuradas no bloco de estilos.
   
 ## 🛠️ Tecnologias
 
