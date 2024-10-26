@@ -1,6 +1,11 @@
-Vou utilizar o conteúdo do seu arquivo README como modelo e gerar um README personalizado para o seu projeto de contagem regressiva em JavaScript.
+<a href="https://github.com/filipeleonelbatista/chat-anywhere/blob/master/README_EN.md" target="_blank">
+  <img src="https://raw.githubusercontent.com/filipeleonelbatista/filipeleonelbatista/master/assets/usa_flag.png" width="28px" />
+  Version in English
+</a>
+</br>
+</br>
 
----
+<img width="100%" src="./banner.png">
 
 # Countdown Clock
 
