@@ -88,14 +88,18 @@
       const hour = getQueryParam('hour');
       const minute = getQueryParam('minute');
 
+      let targetDate;
+
       if (day === null || month === null || year === null || hour === null || minute === null) {
-        alert("Parâmetros inválidos. Por favor, forneça valores para day, month, year, hour e minute.");
-        return;
+        targetDate = new Date();
+        targetDate.setMinutes(targetDate.getMinutes() + 2);
+        targetDate.setSeconds(targetDate.getSeconds() + 50);
+      } else {
+        targetDate = new Date(year, month - 1, day, hour, minute);
       }
 
-      const targetDate = new Date(year, month - 1, day, hour, minute);
       const now = new Date();
-      let time = Math.floor((targetDate - now) / 1000); // Convertendo milissegundos para segundos
+      let time = Math.floor((targetDate - now) / 1000); 
 
       if (time <= 0) {
         alert("A data/hora fornecida já passou.");
